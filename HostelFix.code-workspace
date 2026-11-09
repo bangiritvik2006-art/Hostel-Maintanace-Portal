@@ -1,0 +1,25 @@
+{
+  "folders": [
+    {
+      "path": "frontend"
+    },
+    {
+      "path": "backend"
+    },
+    {
+      "path": "notification-service"
+    },
+    {
+      "path": "database"
+    },
+    {
+      "path": "docs"
+    }
+  ],
+  "settings": {
+    "files.exclude": {
+      "**/node_modules": true,
+      "**/target": true
+    }
+  }
+}

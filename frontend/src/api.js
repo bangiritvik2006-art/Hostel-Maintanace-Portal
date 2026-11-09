@@ -1,0 +1,12 @@
+import axios from 'axios';
+const api = axios.create({ baseURL: import.meta.env.VITE_API_URL || 'http://localhost:8080/api' });
+export const getRequests = (params = {}) => api.get('/requests', { params }).then(r => r.data);
+export const getRequest = id => api.get(`/requests/${id}`).then(r => r.data);
+export const createRequest = data => api.post('/requests', { ...data, priority: String(data.priority).toUpperCase() }).then(r => r.data);
+export const updateRequest = (id, data) => api.put(`/requests/${id}`, data).then(r => r.data);
+export const updateStatus = (id, status) => api.patch(`/requests/${id}/status`, { status }).then(r => r.data);
+export const assignStaff = (id, staffId) => api.patch(`/requests/${id}/assign/${staffId}`).then(r => r.data);
+export const deleteRequest = id => api.delete(`/requests/${id}`);
+export const getStats = () => api.get('/dashboard/stats').then(r => r.data);
+export const getStaff = () => api.get('/staff').then(r => r.data);
+export const addStaff = data => api.post('/staff', data).then(r => r.data);

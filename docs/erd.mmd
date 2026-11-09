@@ -1,0 +1,23 @@
+erDiagram
+  STAFF_MEMBERS ||--o{ MAINTENANCE_REQUESTS : assigned_to
+  STAFF_MEMBERS {
+    BIGINT id PK
+    VARCHAR name
+    VARCHAR department
+    VARCHAR phone
+    BOOLEAN active
+  }
+  MAINTENANCE_REQUESTS {
+    BIGINT id PK
+    VARCHAR ticket_number UK
+    VARCHAR reporter_name
+    VARCHAR room_number
+    VARCHAR category
+    VARCHAR priority
+    TEXT description
+    VARCHAR status
+    DATETIME created_at
+    DATETIME updated_at
+    DATETIME resolved_at
+    BIGINT staff_id FK
+  }
